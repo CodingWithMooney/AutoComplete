@@ -8,5 +8,6 @@ export type optionType = {
     gender: string
     email: string
     phone: string
-    picture: string
+    image: string
+    
 }
