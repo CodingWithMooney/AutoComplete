@@ -1,6 +1,6 @@
-FROM node:19-alpine as development
+FROM node:19-alpine as server-development
 
-WORKDIR /usr/src/app
+WORKDIR /server
 
 COPY package*.json .
 
@@ -10,18 +10,18 @@ COPY . .
 
 RUN npm run build
 
-FROM node:19-alpine as production
+FROM node:19-alpine as server-production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /usr/src/app
+WORKDIR /server/
 
 COPY package*.json .
 
 RUN npm install --only=production
 
-COPY --from=development /usr/src/app/build ./build
+COPY --from=development /server/build ./build
 
 CMD ["node", "build/index.js"]
 

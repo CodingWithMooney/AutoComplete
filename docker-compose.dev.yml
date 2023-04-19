@@ -1,13 +1,26 @@
 version: "3.8"
 
 services:
-  api:
+  server:
     build:
-      context: .
-      target: development
+      context: ./server/
+      target: server-development
     volumes:
-      - ./:/usr/src/app
-      - /user/src/app/node_modules
+      - ./:/server/app
+      - /server/node_modules
     ports:
       - 4000:4000
     command: npm run dev
+  
+  client:
+    build:
+      context: ./client
+      target: client-development
+    volumes:
+      - ./:/client/app
+      - /client/node_modules
+    ports:
+      - 5173:5173
+    command: npm run dev
+    depends_on:
+      - server
