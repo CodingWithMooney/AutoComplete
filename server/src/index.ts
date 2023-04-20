@@ -35,6 +35,9 @@ app.get("/users/:id", async (req:Request,res:Response) => {
     res.send(user)
    });
 
-
+//Get home page for localhost
+app.get("/",  (req:Request,res:Response) => {
+  res.send("Server has started")
+ });
 
 app.listen(4000, () => console.log("Backend started: 4000"));
