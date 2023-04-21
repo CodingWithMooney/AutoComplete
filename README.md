@@ -37,7 +37,4 @@ How to run locally with Docker:
 4. You will see the image running the following:
     Client: http://localhost.com/5173
     Server: http://localhost.com/4000
-
-TODO:
-- Implement jest tests for code
-- Publish repo
+5. When ready, you can run docker compose -f "docker-compose.dev.yml" down 

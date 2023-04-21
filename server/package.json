@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "exclude": [
+    "./coverage",
+    "./build",
+    "__tests__",
+    "jest.config.js"
+  ],
   "scripts": {
+    "test": "jest --coverage",
     "dev": "nodemon --watch  --ext \"ts,json\" --poll --exec \"ts-node-dev src/index.ts\"",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/index.js"
@@ -18,8 +25,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.1",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.22",
     "rimraf": "^5.0.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
   }
