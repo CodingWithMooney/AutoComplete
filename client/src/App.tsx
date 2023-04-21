@@ -2,14 +2,13 @@ import { useState, ChangeEvent, useEffect } from 'react'
 import { optionType } from './Types';
 import Search from "./components/Search";
 import SelectedUser from './components/SelectedUser';
-const App = (): JSX.Element => {
 
+const App = (): JSX.Element => {
+  //Set state
   const [search, setSearch] = useState<string>('');
   const [options,setOptions] = useState<[]>([])
   const[user,setUser] = useState<optionType | null>(null);
   const[selectedUser,setSelectedUser] = useState<optionType | null>(null)
-
-
 
 
   //Get all users from api

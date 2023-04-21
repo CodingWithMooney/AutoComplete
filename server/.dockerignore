@@ -1,0 +1,4 @@
+__tests__
+/test
+coverage
+node_modules
