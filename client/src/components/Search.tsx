@@ -16,7 +16,7 @@ const Search = ({search,onInputChange,options,onOptionSelect,onSubmit}:Props): J
   return (
     <section className="w-full md:max-w-[500px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-24 h-full lg:h-[500px] ">
       <h1 className="text-3xl font-extrabold">Search Users</h1>
-      <p>Type characters to return user names</p>
+      <p>Type characters to return users</p>
     <div className="relative flex mt-10 md:mt-4">
       <input type="text"
         value={search} 
