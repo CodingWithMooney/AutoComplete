@@ -20,6 +20,9 @@ const SelectedUser = ({data}:Props): JSX.Element => {
             <label htmlFor="email">Email:</label>{data.email}
         </h3>
         <h3 className="text-1xl ">
+            <label htmlFor="username">Username:</label>{data.username}
+        </h3>
+        <h3 className="text-1xl ">
             <label htmlFor="age">Age:</label>{data.age}
         </h3>
         

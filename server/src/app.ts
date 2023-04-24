@@ -2,11 +2,15 @@ import express from "express"
 import cors from "cors"
 import  { Request, Response } from "express"
 import { UData } from "./Interfaces/interfaces";
+import removeDuplicate from "./helperFunctions/removeDuplicates";
 
 //setup for express app
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+
+
 
 //Get all users
 app.post("/users/search", async (req:Request,res:Response) => {
@@ -16,7 +20,12 @@ app.post("/users/search", async (req:Request,res:Response) => {
        const regex = new RegExp(`^${req.body.search}`, "i");
        const filtered_firstName = users.users.sort().filter((v: UData) => regex.test(v.firstName));
        const filtered_lastName = users.users.sort().filter((v: UData) => regex.test(v.lastName));
-       res.send(filtered_firstName.concat(filtered_lastName));
+       const filtered_userName = users.users.sort().filter((v: UData) => regex.test(v.username));
+       const filtered_userEmail = users.users.sort().filter((v: UData) => regex.test(v.email));
+       let result = [filtered_firstName,filtered_lastName,filtered_userEmail,filtered_userName];
+       const results = result.flat();
+       const final_result = removeDuplicate(results).sort();
+       res.send(final_result);
    }    
 });
 

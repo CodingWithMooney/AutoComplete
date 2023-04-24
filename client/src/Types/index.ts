@@ -9,5 +9,5 @@ export type optionType = {
     email: string
     phone: string
     image: string
-    
+    username: string
 }
