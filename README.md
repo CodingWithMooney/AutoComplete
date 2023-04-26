@@ -38,3 +38,9 @@ How to run locally with Docker:
     Client: http://localhost.com/5173
     Server: http://localhost.com/4000
 5. When ready, you can run docker compose -f "docker-compose.dev.yml" down 
+
+
+How to run tests
+1. Open terminal and clone the repo into your directory
+2. With the /autocomplete directory, run npm run test
+3. Expect 2 tests two pass for searching against 1 user and multiple users.
